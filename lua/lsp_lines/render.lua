@@ -23,20 +23,19 @@ local BLANK = "blank"
 
 ---Returns the distance between two columns in cells.
 ---
----Some characters (like tabs) take up more than one cell. A diagnostic aligned
+---Some characters (like tabs) take up more than one cell.
+---Additionally, inline virtual text can make the distance between two columns larger.
+---A diagnostic aligned
 ---under such characters needs to account for that and add that many spaces to
 ---its left.
 ---
 ---@return integer
 local function distance_between_cols(bufnr, lnum, start_col, end_col)
-  local lines = vim.api.nvim_buf_get_lines(bufnr, lnum, lnum + 1, false)
-  if vim.tbl_isempty(lines) then
-    -- This can only happen is the line is somehow gone or out-of-bounds.
-    return 1
-  end
-
-  local sub = string.sub(lines[1], start_col, end_col)
-  return vim.fn.strdisplaywidth(sub, 0) -- these are indexed starting at 0
+  return vim.api.nvim_buf_call(bufnr, function()
+    local s = vim.fn.virtcol({ lnum + 1, start_col })
+    local e = vim.fn.virtcol({ lnum + 1, end_col + 1 })
+    return e - 1 - s
+  end)
 end
 
 ---@param namespace number
