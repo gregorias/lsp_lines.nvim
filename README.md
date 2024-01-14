@@ -1,5 +1,8 @@
 # lsp_lines.nvim
 
+NOTE: This is a mirror made of the plugin on 2024-01-14. I mirrored the repo,
+because the upstream stopped working in 2024.
+
 [Source](https://git.sr.ht/~whynothugo/lsp_lines.nvim) |
 [Issues](https://todo.sr.ht/~whynothugo/lsp_lines.nvim) |
 [Discussion/Patches](https://lists.sr.ht/~whynothugo/lsp_lines.nvim) |
