@@ -1,5 +1,8 @@
 # lsp_lines.nvim
 
+> [!WARNING]
+> [This plugin’s functionality is now built-in.](https://gpanders.com/blog/whats-new-in-neovim-0-11/#virtual-lines)
+
 NOTE: This is a mirror made of the plugin on 2024-01-14. I mirrored the repo,
 because the upstream stopped working in 2024.
 
